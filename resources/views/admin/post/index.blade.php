@@ -27,8 +27,11 @@
                             <tr>
                                 <td>{{ $post->name }}</td>
                                 <td>{{ $post->date }}</td>
-                                <td>{{ $post->user->name }}</td>
+                                <td>{{ $post->user->name ?? "" }}</td>
                                 <td>
+                                    <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary">
+                                        Detail
+                                    </a>
                                     <a href="{{ route('post.edit', $post->id) }}" class="btn btn-warning">
                                         Edit
                                     </a>

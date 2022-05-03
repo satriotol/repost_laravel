@@ -52,9 +52,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        if (Auth::user()->id != $post->user_id) {
+            return redirect(route('post.index'));
+        }
+        return view('admin.post.show', compact('post'));
     }
 
     /**
@@ -65,6 +68,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        if (Auth::user()->id != $post->user_id) {
+            return redirect(route('post.index'));
+        }
         return view('admin.post.create', compact('post'));
     }
 

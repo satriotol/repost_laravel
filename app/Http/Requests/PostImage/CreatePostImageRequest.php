@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Post;
+namespace App\Http\Requests\PostImage;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatePostRequest extends FormRequest
+class CreatePostImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CreatePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +24,7 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|image',
-            'social_media_id' => 'required',
-            'post_id' => 'nullable'
+            //
         ];
     }
 }

@@ -14,6 +14,7 @@
 
     <!-- CSS Libraries -->
 
+    <link href="{{ asset('logo.png') }}" rel="icon">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets_admin/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets_admin/css/components.css') }}">

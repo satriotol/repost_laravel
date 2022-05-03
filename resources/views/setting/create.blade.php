@@ -24,6 +24,11 @@
                                     value="{{ Auth::user()->name }}">
                             </div>
                             <div class="form-group">
+                                <label>NIP</label>
+                                <input type="number" name="nip" required class="form-control"
+                                    value="{{ Auth::user()->nip }}">
+                            </div>
+                            <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" name="email" required class="form-control"
                                     value="{{ Auth::user()->email }}">

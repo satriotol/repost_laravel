@@ -26,7 +26,8 @@ class UpdateSettingRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|unique:users,email,' . $this->user,
-            'password' => 'nullable|confirmed'
+            'password' => 'nullable|confirmed',
+            'nip' => 'nullable',
         ];
     }
 }

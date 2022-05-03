@@ -17,6 +17,7 @@
 
     <div class="text-center">
         <h5>{{ $user->name }}</h5>
+        <h5>{{ $user->nip }}</h5>
     </div>
     <br />
     @foreach ($user->posts as $post)

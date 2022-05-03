@@ -7,6 +7,7 @@ use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class SettingController extends Controller
 {
@@ -24,6 +25,6 @@ class SettingController extends Controller
         }
         $user->update($data);
         session()->flash('success', 'Account Updated Successfully');
-        return redirect(route("setting.index"));
+        return redirect(route("post.index"));
     }
 }

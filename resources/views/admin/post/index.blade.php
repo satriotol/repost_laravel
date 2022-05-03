@@ -10,6 +10,8 @@
             <div class="card-header">
                 <h4>Post Table</h4>
                 <div class="card-header-action">
+                    <a href="{{ route('export_pdf', Auth::user()->id) }}" target="_blank"
+                        class="badge badge-success mr-1">Export PDF</a>
                     <a href="{{ route('post.create') }}" class="badge badge-primary">Create</a>
                 </div>
             </div>
@@ -28,7 +30,7 @@
                             <tr>
                                 <td>{{ $post->name }}</td>
                                 <td>{{ $post->date }}</td>
-                                <td>{{ $post->user->name ?? "" }}</td>
+                                <td>{{ $post->user->name ?? '' }}</td>
                                 <td>{{ $post->post_images->count() }}</td>
                                 <td>
                                     <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary">

@@ -20,10 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [AdminController::class, 'admin'])->name('admin');
-    Route::resources([
-        'social_media' => SocialMediaController::class,
-        'user' => UserController::class,
-    ]);
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::resources([
+            'social_media' => SocialMediaController::class,
+            'user' => UserController::class,
+        ]);
+    });
 
     Route::resources([
         'post' => PostController::class,

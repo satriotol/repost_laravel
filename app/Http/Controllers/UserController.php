@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use PDF;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -35,7 +36,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        $roles = Role::all();
+        return view('admin.user.create', compact('roles'));
     }
 
     /**
@@ -48,7 +50,8 @@ class UserController extends Controller
     {
         $data = $request->all();
         $data['password'] = Hash::make($request->password);
-        User::create($data);
+        $user = User::create($data);
+        $user->assignRole($request->role);
         session()->flash('success');
         return redirect(route('user.index'));
     }
@@ -72,7 +75,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.user.create', compact('user'));
+        $roles = Role::all();
+        return view('admin.user.create', compact('user', 'roles'));
     }
 
     /**
@@ -89,6 +93,7 @@ class UserController extends Controller
             $data['password'] = Hash::make($request->password);
         }
         $user->update($data);
+        $user->syncRoles($request->role);
         session()->flash('success');
         return redirect(route('user.index'));
     }

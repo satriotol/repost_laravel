@@ -4,6 +4,7 @@
         <h1>User Form</h1>
     </div>
 
+    {{ $roles }}
     <div class="section-body">
         <h2 class="section-title">User Form</h2>
         @include('admin.partials.errors')
@@ -30,6 +31,20 @@
                                 <label>Email</label>
                                 <input type="email" class="form-control" value="{{ isset($user) ? $user->email : '' }}"
                                     name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select class="custom-select" required name="role">
+                                    <option value="">Open this select menu</option>
+                                    @foreach ($roles as $role)
+                                        @if (isset($user))
+                                            <option value="{{ $role->name }}" selected>{{ $role->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>

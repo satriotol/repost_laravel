@@ -18,6 +18,7 @@
                     <thead>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Post</th>
                         <th>Action</th>
                         </tr>
@@ -27,13 +28,11 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->getRoleNames()->first() }}</td>
                                 <td>{{ $user->posts->count() }}</td>
                                 <td>
                                     <a href="{{ route('export_pdf', $user->id) }}" target="_blank" class="btn btn-success">
                                         PDF
-                                    </a>
-                                    <a href="{{ route('user.show', $user->id) }}" class="btn btn-primary">
-                                        Detail
                                     </a>
                                     <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning">
                                         Edit

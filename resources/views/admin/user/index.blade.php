@@ -17,7 +17,8 @@
                 <table id="myTable" class="display">
                     <thead>
                         <th>Name</th>
-                        <th>User</th>
+                        <th>Email</th>
+                        <th>Post</th>
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -26,9 +27,9 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->posts->count() }}</td>
                                 <td>
-                                    <a href="{{ route('export_pdf', $user->id) }}" class="btn btn-primary">
+                                    <a href="{{ route('export_pdf', $user->id) }}" target="_blank" class="btn btn-success">
                                         PDF
                                     </a>
                                     <a href="{{ route('user.show', $user->id) }}" class="btn btn-primary">
@@ -37,7 +38,7 @@
                                     <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning">
                                         Edit
                                     </a>
-                                    <form action="{{ route('user.destroy', $user->id) }}" method="user"
+                                    <form action="{{ route('user.destroy', $user->id) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         @method('DELETE')

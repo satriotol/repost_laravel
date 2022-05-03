@@ -9,7 +9,6 @@
 
 <body>
 
-    {{-- <div class="container"> --}}
     <div class="text-center">
         <h5>{{ $user->name }}</h5>
     </div>
@@ -17,7 +16,7 @@
     @foreach ($user->posts as $post)
         <p>{{ $post->name }}</p>
         <p>{{ $post->date }}</p>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Sosial Media</th>
@@ -37,10 +36,7 @@
                 @endforeach
             </tbody>
         </table>
-        <p>
-        </p>
     @endforeach
-    {{-- </div> --}}
 
 </body>
 

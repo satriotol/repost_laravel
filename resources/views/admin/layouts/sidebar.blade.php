@@ -20,6 +20,12 @@
                     <span>Social media</span>
                 </a>
             </li>
+            <li class="{{ Request::routeIs('post.*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('post.index') }}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Post</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

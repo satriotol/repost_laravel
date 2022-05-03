@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Partner;
+namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePartnerRequest extends FormRequest
+class CreatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class UpdatePartnerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'nullable|image',
-            'url' => 'required|url'
+            'date' => 'required',
+            'user_id' => 'nullable'
         ];
     }
 }

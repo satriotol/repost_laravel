@@ -15,7 +15,7 @@
                 <div class="d-sm-none d-lg-inline-block">Hi, {{Auth::user()->name}}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item has-icon" href="#">
+                <a class="dropdown-item has-icon" href="{{route('setting.index')}}">
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>

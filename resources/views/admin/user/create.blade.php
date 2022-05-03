@@ -4,7 +4,6 @@
         <h1>User Form</h1>
     </div>
 
-    {{ $roles }}
     <div class="section-body">
         <h2 class="section-title">User Form</h2>
         @include('admin.partials.errors')
@@ -37,12 +36,11 @@
                                 <select class="custom-select" required name="role">
                                     <option value="">Open this select menu</option>
                                     @foreach ($roles as $role)
-                                        @if (isset($user))
-                                            <option value="{{ $role->name }}" selected>{{ $role->name }}
-                                            </option>
-                                        @else
-                                            <option value="{{ $role->name }}">{{ $role->name }}</option>
-                                        @endif
+                                        <option value="{{ $role->name }}"
+                                            @isset($user) @if ($role->name ===
+                                                $user->getRoleNames()->first()) selected @endif @endisset>
+                                            {{ $role->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>

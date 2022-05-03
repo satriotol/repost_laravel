@@ -23,8 +23,11 @@ class UserController extends Controller
         return view('admin.user.index', compact('users'));
     }
 
-    public function export_pdf(User $user)
+    public function export_pdf($user)
     {
+        $user = User::where('id', $user)->with(['posts' => function ($q) {
+            $q->orderBy('date', 'asc');
+        }])->first();
         $pdf = PDF::loadview('user_pdf', ['user' => $user]);
         return $pdf->download($user->name . '.pdf');
     }

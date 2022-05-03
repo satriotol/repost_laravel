@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostImageController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/post_image/store', [PostImageController::class, 'store'])->name('post_image.store');
     Route::put('/post_image/{post_image}', [PostImageController::class, 'update'])->name('post_image.update');
     Route::delete('/post_image/{post_image}', [PostImageController::class, 'destroy'])->name('post_image.destroy');
+
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::put('/setting/{user}', [SettingController::class, 'update'])->name('setting.update');
 });
 
 require __DIR__ . '/auth.php';

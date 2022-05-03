@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostImageController;
 use App\Http\Controllers\SocialMediaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [AdminController::class, 'admin'])->name('admin');
     Route::resources([
         'social_media' => SocialMediaController::class,
+        'user' => UserController::class,
     ]);
 
     Route::resources([

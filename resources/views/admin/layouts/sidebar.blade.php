@@ -26,6 +26,12 @@
                     <span>Post</span>
                 </a>
             </li>
+            <li class="{{ Request::routeIs('user.*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('user.index') }}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Users</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

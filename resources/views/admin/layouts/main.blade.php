@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Admin BPS</title>
+    <title>DISKOMINFO</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,6 +17,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets_admin/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets_admin/css/components.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lightbox.css') }}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css"
@@ -62,6 +63,7 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets_admin/js/scripts.js') }}"></script>
     <script src="{{ asset('assets_admin/js/custom.js') }}"></script>
+    <script src="{{ asset('js/lightbox.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js">
 
     </script>
@@ -90,6 +92,12 @@
         $(document).ready(function() {
             $('#myTable').DataTable();
         });
+    </script>
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
     </script>
 
     <!-- Page Specific JS File -->

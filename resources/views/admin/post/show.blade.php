@@ -41,8 +41,10 @@
                                     <tr>
                                         <td>{{ $post_image->social_media->name }}</td>
                                         <td>
-                                            <img src="{{ $post_image->image_url }}" style="height: 100px"
-                                                class="img-fluid">
+                                            <a href="{{ $post_image->image_url }}" data-lightbox="roadtrip">
+                                                <img src="{{ $post_image->image_url }}" style="height: 100px"
+                                                    class="img-fluid">
+                                            </a>
                                         </td>
                                         <td>
                                             <a href="{{ route('post_image.edit', ['post_image' => $post_image->id, 'post' => $post_image->post_id]) }}"

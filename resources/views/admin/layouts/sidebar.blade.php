@@ -16,23 +16,23 @@
             </li>
             <li class="{{ Request::routeIs('post.*', 'post_image.*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('post.index') }}">
-                    <i class="fas fa-tachometer-alt"></i>
+                    <i class="fas fa-image"></i>
                     <span>Post</span>
                 </a>
             </li>
             @hasrole('admin')
-            <li class="{{ Request::routeIs('social_media.*') ? 'active' : '' }}"><a class="nav-link"
-                    href="{{ route('social_media.index') }}">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Social media</span>
-                </a>
-            </li>
-            <li class="{{ Request::routeIs('user.*') ? 'active' : '' }}"><a class="nav-link"
-                    href="{{ route('user.index') }}">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Users</span>
-                </a>
-            </li>
+                <li class="{{ Request::routeIs('social_media.*') ? 'active' : '' }}"><a class="nav-link"
+                        href="{{ route('social_media.index') }}">
+                        <i class="fas fa-hashtag"></i>
+                        <span>Social media</span>
+                    </a>
+                </li>
+                <li class="{{ Request::routeIs('user.*') ? 'active' : '' }}"><a class="nav-link"
+                        href="{{ route('user.index') }}">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
             @endrole
         </ul>
     </aside>

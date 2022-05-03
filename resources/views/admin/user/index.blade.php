@@ -28,6 +28,9 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
+                                    <a href="{{ route('export_pdf', $user->id) }}" class="btn btn-primary">
+                                        PDF
+                                    </a>
                                     <a href="{{ route('user.show', $user->id) }}" class="btn btn-primary">
                                         Detail
                                     </a>

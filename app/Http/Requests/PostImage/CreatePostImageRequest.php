@@ -13,7 +13,7 @@ class CreatePostImageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class CreatePostImageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'image' => 'required|image',
+            'social_media_id' => 'required',
+            'post_id' => 'nullable'
         ];
     }
 }

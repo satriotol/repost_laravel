@@ -41,7 +41,7 @@
                                     <tr>
                                         <td>{{ $post_image->social_media->name }}</td>
                                         <td>
-                                            <img src="{{ $post_image->image }}" style="height: 100px"
+                                            <img src="{{ $post_image->image_url }}" style="height: 100px"
                                                 class="img-fluid">
                                         </td>
                                         <td>

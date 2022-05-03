@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use PDF;
+
 class UserController extends Controller
 {
     /**
@@ -16,6 +18,12 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('admin.user.index', compact('users'));
+    }
+
+    public function export_pdf(User $user)
+    {
+        $pdf = PDF::loadview('user_pdf', ['user' => $user]);
+        return $pdf->download($user->name . '.pdf');
     }
 
     /**

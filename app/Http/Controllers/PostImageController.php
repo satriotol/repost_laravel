@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Post\CreatePostRequest;
+use App\Http\Requests\PostImage\CreatePostImageRequest;
+use App\Http\Requests\PostImage\UpdatePostImageRequest;
 use App\Models\Post;
 use App\Models\PostImage;
 use App\Models\SocialMedia;
@@ -15,7 +17,7 @@ class PostImageController extends Controller
         $social_medias = SocialMedia::all();
         return view('admin.post_image.create', compact('post', 'social_medias'));
     }
-    public function store(CreatePostRequest $request)
+    public function store(CreatePostImageRequest $request)
     {
         $data = $request->all();
         if ($request->hasFile('image')) {
@@ -31,7 +33,7 @@ class PostImageController extends Controller
         $social_medias = SocialMedia::all();
         return view('admin.post_image.create', compact('post', 'post_image', 'social_medias'));
     }
-    public function update(CreatePostRequest $request, PostImage $post_image)
+    public function update(UpdatePostImageRequest $request, PostImage $post_image)
     {
         $data = $request->all();
         if ($request->hasFile('image')) {

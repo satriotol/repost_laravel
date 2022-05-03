@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'post' => PostController::class,
     ]);
+    Route::get('export_pdf/{user}', [UserController::class, 'export_pdf'])->name('export_pdf');
     Route::get('/post_image/create/{post}', [PostImageController::class, 'create'])->name('post_image.create');
     Route::get('/post_image/edit/{post_image}/{post}', [PostImageController::class, 'edit'])->name('post_image.edit');
     Route::post('/post_image/store', [PostImageController::class, 'store'])->name('post_image.store');

@@ -12,6 +12,8 @@ class PostImage extends Model
 
     protected $fillable = ["image", "post_id", "social_media_id"];
 
+    protected $appends = ['image_url'];
+
     public function post()
     {
         return $this->belongsTo(Post::class, 'post_id', 'id');
@@ -20,9 +22,9 @@ class PostImage extends Model
     {
         return $this->belongsTo(SocialMedia::class, 'social_media_id', 'id');
     }
-    public function getImageAttribute($value)
+    public function getImageUrlAttribute()
     {
-        return url('storage/' . $value);
+        return url('storage/' . $this->image);
     }
     public function deleteImage()
     {

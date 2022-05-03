@@ -23,14 +23,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [AdminController::class, 'admin'])->name('admin');
-    Route::resources([
-        'slider' => SliderController::class,
-        'unit' => UnitController::class,
-        'partner' => PartnerController::class,
-        'about' => AboutController::class,
-        'gallery' => GalleryController::class,
-        'carrier' => CarrierController::class,
-    ]);
 });
 
 require __DIR__ . '/auth.php';

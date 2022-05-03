@@ -1,13 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutController;
-use App\Http\Controllers\Admin\GalleryController;
-use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CarrierController;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SocialMediaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [AdminController::class, 'admin'])->name('admin');
+    Route::resources([
+        'social_media' => SocialMediaController::class,
+    ]);
 });
 
 require __DIR__ . '/auth.php';

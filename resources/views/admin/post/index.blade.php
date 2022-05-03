@@ -19,6 +19,7 @@
                         <th>Name</th>
                         <th>Date</th>
                         <th>User</th>
+                        <th>Image Count</th>
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -28,6 +29,7 @@
                                 <td>{{ $post->name }}</td>
                                 <td>{{ $post->date }}</td>
                                 <td>{{ $post->user->name ?? "" }}</td>
+                                <td>{{ $post->post_images->count() }}</td>
                                 <td>
                                     <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary">
                                         Detail

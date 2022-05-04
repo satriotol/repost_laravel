@@ -27,6 +27,12 @@
                         <span>Social media</span>
                     </a>
                 </li>
+                <li class="{{ Request::routeIs('agency.*') ? 'active' : '' }}"><a class="nav-link"
+                        href="{{ route('agency.index') }}">
+                        <i class="fas fa-users"></i>
+                        <span>Dinas</span>
+                    </a>
+                </li>
                 <li class="{{ Request::routeIs('user.*') ? 'active' : '' }}"><a class="nav-link"
                         href="{{ route('user.index') }}">
                         <i class="fas fa-users"></i>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AgencyController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostImageController;
 use App\Http\Controllers\SettingController;
@@ -25,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resources([
             'social_media' => SocialMediaController::class,
             'user' => UserController::class,
+            'agency' => AgencyController::class,
         ]);
     });
 

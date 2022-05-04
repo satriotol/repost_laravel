@@ -33,6 +33,12 @@
                         <span>Dinas</span>
                     </a>
                 </li>
+                <li class="{{ Request::routeIs('sector.*') ? 'active' : '' }}"><a class="nav-link"
+                        href="{{ route('sector.index') }}">
+                        <i class="fas fa-users"></i>
+                        <span>Bidang</span>
+                    </a>
+                </li>
                 <li class="{{ Request::routeIs('user.*') ? 'active' : '' }}"><a class="nav-link"
                         href="{{ route('user.index') }}">
                         <i class="fas fa-users"></i>

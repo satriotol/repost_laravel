@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="section-header">
-        <h1>Blank Page</h1>
+        <h1>Dashboard Page</h1>
     </div>
 
     <div class="section-body">
@@ -9,7 +9,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-primary">
-                        <i class="far fa-user"></i>
+                        <i class="far fa-newspaper"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -24,7 +24,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                        <i class="far fa-newspaper"></i>
+                        <i class="far fa-user"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -39,7 +39,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-warning">
-                        <i class="far fa-file"></i>
+                        <i class="far fa-image"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">

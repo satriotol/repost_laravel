@@ -10,4 +10,8 @@ class SocialMedia extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+    public function post_images()
+    {
+        return $this->hasMany(PostImage::class, 'social_media_id', 'id');
+    }
 }

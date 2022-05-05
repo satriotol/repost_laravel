@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="section-header">
-        <h1>Dashboard Page</h1>
+        <h1>Dashboard</h1>
     </div>
 
     <div class="section-body">
@@ -46,7 +46,7 @@
                             <h4>Image Posted</h4>
                         </div>
                         <div class="card-body">
-                            {{$post_images}}
+                            {{ $post_images }}
                         </div>
                     </div>
                 </div>
@@ -61,11 +61,127 @@
                             <h4>Social Media</h4>
                         </div>
                         <div class="card-body">
-                            {{$social_medias}}
+                            {{ $social_medias }}
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Media Sosial</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>User</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart2"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+@push('script')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = [
+            @foreach ($social_media_count as $smc)
+                '{!! $smc->name !!}',
+            @endforeach
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Media Sosial',
+                data: [
+                    @foreach ($social_media_count as $smc)
+                        {{ $smc->post_images_count }},
+                    @endforeach
+                ],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+    <script>
+        const labels2 = [
+            @foreach ($users_count as $uc)
+                '{!! $uc->name !!}',
+            @endforeach
+        ];
+
+        function random_rgba() {
+            var o = Math.round,
+                r = Math.random,
+                s = 255;
+            return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+        }
+        const data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Postingan',
+                data: [
+                    @foreach ($users_count as $uc)
+                        {{ $uc->post_images_count }},
+                    @endforeach
+                ],
+                backgroundColor: [
+                    @foreach ($users_count as $uc)
+                        random_rgba(),
+                    @endforeach
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        const config2 = {
+            type: 'bar',
+            data: data2,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+    </script>
+    <script>
+        const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            config2
+        );
+    </script>
+@endpush

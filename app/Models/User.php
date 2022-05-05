@@ -49,6 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class, 'user_id', 'id');
     }
+    public function post_images()
+    {
+        return $this->hasManyThrough(PostImage::class, Post::class);
+    }
     public function sector()
     {
         return $this->belongsTo(Sector::class, 'sector_id', 'id');

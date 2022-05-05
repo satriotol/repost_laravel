@@ -33,7 +33,7 @@
                                 <input type="email" name="email" required class="form-control"
                                     value="{{ Auth::user()->email }}">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Dinas</label>
                                 <select class="custom-select" required name="agency_id">
                                     <option value="">Open this select menu</option>
@@ -44,7 +44,7 @@
                                         </option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label>Bidang</label>
                                 <select class="custom-select" required name="sector_id">

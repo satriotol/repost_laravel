@@ -29,7 +29,6 @@ class UpdateSettingRequest extends FormRequest
             'password' => 'nullable|confirmed',
             'nip' => 'nullable',
             'sector_id' => 'required',
-            'agency_id' => 'required',
         ];
     }
 }

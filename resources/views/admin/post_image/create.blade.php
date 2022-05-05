@@ -27,11 +27,7 @@
                                     <option value="">Open this select menu</option>
                                     @foreach ($social_medias as $social_media)
                                         <option value="{{ $social_media->id }}"
-                                            @if (isset($post_image)) 
-                                            @if ($social_media->id === $post_image->social_media_id) 
-                                            selected 
-                                            @endif
-                                            @endif>
+                                            @isset($post_image) @if ($social_media->name === $post_image->social_media->name) selected @endif @endisset>
                                             {{ $social_media->name }}
                                         </option>
                                     @endforeach

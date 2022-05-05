@@ -66,6 +66,16 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Postingan Pengguna</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
@@ -73,16 +83,6 @@
                     </div>
                     <div class="card-body">
                         <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>User</h4>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="myChart2"></canvas>
                     </div>
                 </div>
             </div>

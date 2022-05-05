@@ -34,6 +34,30 @@
                                     value="{{ Auth::user()->email }}">
                             </div>
                             <div class="form-group">
+                                <label>Dinas</label>
+                                <select class="custom-select" required name="agency_id">
+                                    <option value="">Open this select menu</option>
+                                    @foreach ($agencies as $agency)
+                                        <option value="{{ $agency->id }}"
+                                            @isset($setting) @if ($agency->id === Auth::user()->sector->agency_id) selected @endif @endisset>
+                                            {{ $agency->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Bidang</label>
+                                <select class="custom-select" required name="sector_id">
+                                    <option value="">Open this select menu</option>
+                                    @foreach ($sectors as $sector)
+                                        <option value="{{ $sector->id }}"
+                                            @isset($setting) @if ($sector->id === Auth::user()->sector_id) selected @endif @endisset>
+                                            {{ $sector->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" class="form-control">
                             </div>

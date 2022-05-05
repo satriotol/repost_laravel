@@ -26,12 +26,10 @@
                                 <select class="custom-select" required name="social_media_id">
                                     <option value="">Open this select menu</option>
                                     @foreach ($social_medias as $social_media)
-                                        @if (isset($post_image))
-                                            <option value="{{ $social_media->id }}" selected>{{ $social_media->name }}
-                                            </option>
-                                        @else
-                                            <option value="{{ $social_media->id }}">{{ $social_media->name }}</option>
-                                        @endif
+                                        <option value="{{ $social_media->id }}"
+                                            @isset($post_image) @if ($social_media->id === $post_image->social_media_id) selected @endif @endisset>
+                                            {{ $social_media->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>

@@ -28,6 +28,8 @@ class UpdateSettingRequest extends FormRequest
             'email' => 'required|unique:users,email,' . $this->user,
             'password' => 'nullable|confirmed',
             'nip' => 'nullable',
+            'sector_id' => 'required',
+            'agency_id' => 'required',
         ];
     }
 }

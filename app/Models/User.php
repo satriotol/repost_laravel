@@ -22,7 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'nip'
+        'nip',
+        'sector_id'
     ];
 
     /**
@@ -47,5 +48,9 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+    public function sector()
+    {
+        return $this->belongsTo(Sector::class, 'sector_id', 'id');
     }
 }

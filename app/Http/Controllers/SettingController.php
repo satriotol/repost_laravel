@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Setting\UpdateSettingRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Models\Agency;
+use App\Models\Sector;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,9 @@ class SettingController extends Controller
     public function index()
     {
         $setting = Auth::user();
-        return view('setting.create', compact('setting'));
+        $sectors = Sector::all();
+        $agencies = Agency::all();
+        return view('setting.create', compact('setting', 'sectors', 'agencies'));
     }
     public function update(UpdateSettingRequest $request)
     {

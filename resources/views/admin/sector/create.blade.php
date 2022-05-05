@@ -31,12 +31,10 @@
                                 <select class="custom-select" required name="agency_id">
                                     <option value="">Open this select menu</option>
                                     @foreach ($agencies as $agency)
-                                        @if (isset($sector))
-                                            <option value="{{ $agency->id }}" selected>{{ $agency->name }}
-                                            </option>
-                                        @else
-                                            <option value="{{ $agency->id }}">{{ $agency->name }}</option>
-                                        @endif
+                                        <option value="{{ $agency->id }}"
+                                            @isset($sector) @if ($agency->id === $sector->agency_id) selected @endif @endisset>
+                                            {{ $agency->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>

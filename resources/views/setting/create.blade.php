@@ -51,7 +51,7 @@
                                     <option value="">Open this select menu</option>
                                     @foreach ($sectors as $sector)
                                         <option value="{{ $sector->id }}"
-                                            @if (isset($post)) @if ($sector->id === Auth::user()->sector_id)
+                                            @if (isset($setting)) @if ($sector->id === Auth::user()->sector_id)
                                         selected @endif
                                             @endif>
                                             {{ $sector->name }}

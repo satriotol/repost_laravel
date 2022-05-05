@@ -29,7 +29,7 @@ class UserController extends Controller
             $q->orderBy('date', 'asc');
         }])->first();
         $pdf = PDF::loadview('user_pdf', ['user' => $user]);
-        return $pdf->download($user->name . '.pdf');
+        return $pdf->download($user->nip . '-' . $user->name . '.pdf');
     }
 
     /**

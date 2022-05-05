@@ -50,8 +50,7 @@
                                 <select class="custom-select" required name="sector_id">
                                     <option value="">Open this select menu</option>
                                     @foreach ($sectors as $sector)
-                                        <option value="{{ $sector->id }}"
-                                            @isset($setting) @if ($sector->id === Auth::user()->sector_id) selected @endif @endisset>
+                                        <option value="{{ $sector->id }}" @isset($setting) @if ($sector->id === Auth::user()->sector_id) selected @endif @endisset>
                                             {{ $sector->name }}
                                         </option>
                                     @endforeach

@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Total Post</h4>
+                            <h4>Jenis Post</h4>
                         </div>
                         <div class="card-body">
                             {{ $posts }}
@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Image Posted</h4>
+                            <h4>Jumlah Foto Repost</h4>
                         </div>
                         <div class="card-body">
                             {{ $post_images }}
@@ -69,7 +69,15 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Postingan Pengguna</h4>
+                        <h4>Jenis Repost</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Jumlah Foto Repost</h4>
                     </div>
                     <div class="card-body">
                         <canvas id="myChart2"></canvas>
@@ -182,6 +190,56 @@
         const myChart2 = new Chart(
             document.getElementById('myChart2'),
             config2
+        );
+    </script>
+
+    <script>
+        const labels3 = [
+            @foreach ($users_post_count as $upc)
+                '{!! $upc->name !!}',
+            @endforeach
+        ];
+
+        function random_rgba() {
+            var o = Math.round,
+                r = Math.random,
+                s = 255;
+            return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+        }
+        const data3 = {
+            labels: labels3,
+            datasets: [{
+                label: 'Jenis Repost',
+                data: [
+                    @foreach ($users_post_count as $upc)
+                        {{ $upc->posts_count }},
+                    @endforeach
+                ],
+                backgroundColor: [
+                    @foreach ($users_post_count as $upc)
+                        random_rgba(),
+                    @endforeach
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        const config3 = {
+            type: 'bar',
+            data: data3,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+    </script>
+    <script>
+        const myChart3 = new Chart(
+            document.getElementById('myChart3'),
+            config3
         );
     </script>
 @endpush

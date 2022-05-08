@@ -159,7 +159,7 @@
         const data2 = {
             labels: labels2,
             datasets: [{
-                label: 'Postingan',
+                label: 'Foto Postingan',
                 data: [
                     @foreach ($users_count as $uc)
                         {{ $uc->post_images_count }},

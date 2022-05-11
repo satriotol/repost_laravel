@@ -16,10 +16,10 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="myTable" class="display">
+                <table id="myTable2" class="display">
                     <thead>
-                        <th>Name</th>
                         <th>Date</th>
+                        <th>Name</th>
                         <th>User</th>
                         <th>Image Count</th>
                         <th>Action</th>
@@ -28,8 +28,8 @@
                     <tbody>
                         @foreach ($posts as $post)
                             <tr>
-                                <td>{{ $post->name }}</td>
                                 <td>{{ $post->date }}</td>
+                                <td>{{ $post->name }}</td>
                                 <td>{{ $post->user->name ?? '' }}</td>
                                 <td>{{ $post->post_images->count() }}</td>
                                 <td>
@@ -57,3 +57,14 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script>
+        $(document).ready(function() {
+            $('#myTable2').DataTable({
+                "order": [
+                    [0, "desc"]
+                ]
+            });
+        });
+    </script>
+@endpush

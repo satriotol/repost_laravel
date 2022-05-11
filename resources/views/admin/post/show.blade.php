@@ -41,8 +41,8 @@
                                     <tr>
                                         <td>{{ $post_image->social_media->name }}</td>
                                         <td>
-                                            <a href="{{ $post_image->image_url }}" data-lightbox="roadtrip">
-                                                <img src="{{ $post_image->image_url }}" style="height: 100px"
+                                            <a href="{{ asset('uploads/' . $post_image->image) }}" data-lightbox="roadtrip">
+                                                <img src="{{ asset('uploads/' . $post_image->image) }}" style="height: 100px"
                                                     class="img-fluid">
                                             </a>
                                         </td>

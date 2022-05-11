@@ -38,7 +38,7 @@
                                 <input type="file" accept="image/*" class="form-control" name="image">
                             </div>
                             @isset($post_image)
-                                <img src="{{ $post_image->image_url }}" style="height: 100px" alt="">
+                                <img src="{{ asset('uploads/' . $post_image->image) }}" style="height: 100px" alt="">
                             @endisset
                             <input type="text" name="post_id" value="{{ $post->id }}" class="d-none">
                             <div class="text-right">

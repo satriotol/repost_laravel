@@ -22,12 +22,8 @@ class PostImage extends Model
     {
         return $this->belongsTo(SocialMedia::class, 'social_media_id', 'id');
     }
-    public function getImageUrlAttribute()
-    {
-        return url('storage/' . $this->image);
-    }
     public function deleteImage()
     {
-        Storage::disk('public')->delete($this->attributes['image']);
+        Storage::disk('public_uploads')->delete($this->attributes['image']);
     }
 }

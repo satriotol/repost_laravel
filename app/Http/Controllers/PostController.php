@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Post\CreatePostRequest;
 use App\Models\Post;
+use App\Models\PostImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,11 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('user_id', Auth::user()->id)->get();
-        return view('admin.post.index', compact('posts'));
+        $post_count = Post::where('user_id', Auth::user()->id)->count();
+        $post_image_count = PostImage::whereHas('post', function ($q){
+            $q->where('user_id', Auth::user()->id);
+        })->count();
+        return view('admin.post.index', compact('posts','post_count','post_image_count'));
     }
 
     /**

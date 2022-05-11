@@ -20,6 +20,12 @@
                     <span>Post</span>
                 </a>
             </li>
+            <li class="{{ Request::routeIs('report.*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('report.index') }}">
+                    <i class="fas fa-book-open"></i>
+                    <span>Catatan</span>
+                </a>
+            </li>
             @hasrole('admin')
                 <li class="{{ Request::routeIs('social_media.*') ? 'active' : '' }}"><a class="nav-link"
                         href="{{ route('social_media.index') }}">

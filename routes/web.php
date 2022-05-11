@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgencyController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostImageController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SocialMediaController;
@@ -34,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resources([
         'post' => PostController::class,
+        'report' => ReportController::class,
     ]);
     Route::get('export_pdf/{user}', [UserController::class, 'export_pdf'])->name('export_pdf');
     Route::get('/post_image/create/{post}', [PostImageController::class, 'create'])->name('post_image.create');

@@ -13,12 +13,12 @@ class AdminController extends Controller
     public function admin()
     {
         $posts = Post::all()->count();
-        $users = User::all()->count();
+        $users = User::role('user')->get()->count();
         $post_images = PostImage::all()->count();
         $social_medias = SocialMedia::all()->count();
         $social_media_count = SocialMedia::withCount('post_images')->get();
-        $users_count = User::withCount('post_images')->orderBy('name', 'asc')->get();
-        $users_post_count = User::withCount('posts')->orderBy('name', 'asc')->get();
+        $users_count = User::role('user')->withCount('post_images')->orderBy('name', 'asc')->get();
+        $users_post_count = User::role('user')->withCount('posts')->orderBy('name', 'asc')->get();
         return view('admin.dashboard', compact('posts', 'users', 'post_images', 'social_medias', 'social_media_count', 'users_count', 'users_post_count'));
     }
 }

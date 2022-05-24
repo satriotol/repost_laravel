@@ -156,12 +156,17 @@
                 label: 'Foto Postingan',
                 data: [
                     @foreach ($users_count as $uc)
-                        'rgba(255, 99, 132, 0.2)',
+                        {{ $uc->post_images_count }},
                     @endforeach
                 ],
                 backgroundColor: [
                     @foreach ($users_count as $uc)
-                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 159, 64, 0.2)',
+                    @endforeach
+                ],
+                borderColor: [
+                    @foreach ($users_count as $uc)
+                        'rgb(255, 159, 64)',
                     @endforeach
                 ],
                 borderWidth: 1
@@ -200,12 +205,17 @@
                 label: 'Jenis Repost',
                 data: [
                     @foreach ($users_post_count as $upc)
-                        'rgba(54, 162, 235, 0.2)',
+                        {{ $upc->posts_count }},
                     @endforeach
                 ],
                 backgroundColor: [
                     @foreach ($users_post_count as $upc)
-                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 0.2)',
+                    @endforeach
+                ],
+                borderColor: [
+                    @foreach ($users_count as $uc)
+                        'rgb(255, 99, 132)',
                     @endforeach
                 ],
                 borderWidth: 1

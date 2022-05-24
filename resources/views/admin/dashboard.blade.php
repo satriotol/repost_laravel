@@ -150,24 +150,18 @@
             @endforeach
         ];
 
-        function random_rgba() {
-            var o = Math.round,
-                r = Math.random,
-                s = 255;
-            return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
-        }
         const data2 = {
             labels: labels2,
             datasets: [{
                 label: 'Foto Postingan',
                 data: [
                     @foreach ($users_count as $uc)
-                        {{ $uc->post_images_count }},
+                        'rgba(255, 99, 132, 0.2)',
                     @endforeach
                 ],
                 backgroundColor: [
                     @foreach ($users_count as $uc)
-                        random_rgba(),
+                        'rgba(255, 99, 132, 1)',
                     @endforeach
                 ],
                 borderWidth: 1
@@ -200,24 +194,18 @@
             @endforeach
         ];
 
-        function random_rgba() {
-            var o = Math.round,
-                r = Math.random,
-                s = 255;
-            return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
-        }
         const data3 = {
             labels: labels3,
             datasets: [{
                 label: 'Jenis Repost',
                 data: [
                     @foreach ($users_post_count as $upc)
-                        {{ $upc->posts_count }},
+                        'rgba(54, 162, 235, 0.2)',
                     @endforeach
                 ],
                 backgroundColor: [
                     @foreach ($users_post_count as $upc)
-                        random_rgba(),
+                        'rgba(54, 162, 235, 1)',
                     @endforeach
                 ],
                 borderWidth: 1

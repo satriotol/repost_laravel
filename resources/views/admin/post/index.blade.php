@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="myTable3" class="display">
+                <table id="myTable2" class="display">
                     <thead>
                         <th>Date</th>
                         <th>Name</th>
@@ -99,5 +99,36 @@
             });
         });
     </script> --}}
-
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#myTable2').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('post.index') }}",
+                columns: [{
+                        data: 'date',
+                        name: 'date'
+                    },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'user.name',
+                        name: 'user.name'
+                    },
+                    {
+                        data: 'post_images.length',
+                        name: 'post_images.length'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
+        });
+    </script>
 @endpush

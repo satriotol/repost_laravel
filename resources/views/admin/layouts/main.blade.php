@@ -68,38 +68,6 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     @stack('script')
-    <script type="text/javascript">
-        $(function() {
-            var table = $('#myTable3').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('post.index') }}",
-                columns: [{
-                        data: 'date',
-                        name: 'date'
-                    },
-                    {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'user.name',
-                        name: 'user.name'
-                    },
-                    {
-                        data: 'post_images.length',
-                        name: 'post_images.length'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ]
-            });
-        });
-    </script>
     <script>
         $('.summernote').each(function(i, obj) {
             $(obj).summernote({

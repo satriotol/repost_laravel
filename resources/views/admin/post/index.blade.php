@@ -58,7 +58,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($posts as $post)
+                        {{-- @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $post->date }}</td>
                                 <td>{{ $post->name }}</td>
@@ -82,7 +82,7 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
@@ -90,11 +90,43 @@
     </div>
 @endsection
 @push('script')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#myTable2').DataTable({
                 "order": [
                     [0, "desc"]
+                ]
+            });
+        });
+    </script> --}}
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#myTable2').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('post.index') }}",
+                columns: [{
+                        data: 'date',
+                        name: 'date'
+                    },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'user.name',
+                        name: 'user.name'
+                    },
+                    {
+                        data: 'post_images.length',
+                        name: 'post_images.length'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
                 ]
             });
         });

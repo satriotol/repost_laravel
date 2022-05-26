@@ -12,8 +12,6 @@ class PostImage extends Model
 
     protected $fillable = ["image", "post_id", "social_media_id"];
 
-    protected $appends = ['image_url'];
-
     public function post()
     {
         return $this->belongsTo(Post::class, 'post_id', 'id');

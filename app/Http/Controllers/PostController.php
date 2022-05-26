@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\PostImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class PostController extends Controller
 {
@@ -15,14 +16,33 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::where('user_id', Auth::user()->id)->get();
+        if ($request->ajax()) {
+            $posts = Post::where('user_id', Auth::user()->id)->with('user', 'post_images')->get();
+            return DataTables::of($posts)->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="' . route('post.show', $row->id) . '" class="btn btn-primary">Detail</a>';
+                    $btn = $btn . '<a href="' . route('post.edit', $row->id) . '" class="btn btn-warning ml-1">Edit</a>';
+                    $btn = $btn . '
+                        <form action="' . route('post.destroy', $row->id) . '" method="POST"
+                            class="d-inline">
+                            ' . csrf_field() . '
+                            ' . method_field("DELETE") . '
+                            <button type="submit" class="btn btn-danger" onclick="return confirm(\'Are you sure?\')">
+                            Delete
+                            </button>
+                        </form>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         $post_count = Post::where('user_id', Auth::user()->id)->count();
-        $post_image_count = PostImage::whereHas('post', function ($q){
+        $post_image_count = PostImage::whereHas('post', function ($q) {
             $q->where('user_id', Auth::user()->id);
         })->count();
-        return view('admin.post.index', compact('posts','post_count','post_image_count'));
+        return view('admin.post.index', compact('post_count', 'post_image_count'));
     }
 
     /**

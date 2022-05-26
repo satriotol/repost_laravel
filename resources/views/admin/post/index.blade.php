@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="myTable2" class="display">
+                <table id="myTable2" class="displa myTable2y">
                     <thead>
                         <th>Date</th>
                         <th>Name</th>
@@ -101,11 +101,12 @@
     </script> --}}
     <script type="text/javascript">
         $(function() {
-            var table = $('#myTable2').DataTable({
+            var table = $('.myTable2').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('post.index') }}",
-                columns: [{
+                columns: [
+                    {
                         data: 'date',
                         name: 'date'
                     },
@@ -126,7 +127,7 @@
                         name: 'action',
                         orderable: false,
                         searchable: false
-                    },
+                    }
                 ]
             });
         });

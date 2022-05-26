@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="myTable2" class="displa myTable2y">
+                <table id="myTable2" class="displa myTable2">
                     <thead>
                         <th>Date</th>
                         <th>Name</th>

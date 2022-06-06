@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="myTable2" class="display table-responsive">
+                <table class="myTable2 display table-responsive">
                     <thead>
                         <th>Date</th>
                         <th>Name</th>
@@ -92,7 +92,7 @@
 @push('script')
     {{-- <script>
         $(document).ready(function() {
-            $('#myTable2').DataTable({
+            $('.myTable2').DataTable({
                 "order": [
                     [0, "desc"]
                 ]
@@ -101,7 +101,7 @@
     </script> --}}
     <script type="text/javascript">
         $(function() {
-            var table = $('#myTable2').DataTable({
+            var table = $('.myTable2').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {

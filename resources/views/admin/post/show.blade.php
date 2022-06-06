@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <table id="myTable" class="display">
+                        <table id="myTable2" class="display">
                             <thead>
                                 <th>Social Media</th>
                                 <th>Image</th>
@@ -41,9 +41,10 @@
                                     <tr>
                                         <td>{{ $post_image->social_media->name }}</td>
                                         <td>
-                                            <a href="{{ asset('uploads/' . $post_image->image) }}" data-lightbox="roadtrip">
-                                                <img src="{{ asset('uploads/' . $post_image->image) }}" style="height: 100px"
-                                                    class="img-fluid">
+                                            <a href="{{ asset('uploads/' . $post_image->image) }}"
+                                                data-lightbox="roadtrip">
+                                                <img src="{{ asset('uploads/' . $post_image->image) }}"
+                                                    style="height: 100px" class="img-fluid">
                                             </a>
                                         </td>
                                         <td>
@@ -71,3 +72,14 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script>
+        $(document).ready(function() {
+            $('#myTable2').DataTable({
+                "order": [
+                    [0, "desc"]
+                ]
+            });
+        });
+    </script>
+@endpush

@@ -105,8 +105,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('post.index') }}",
-                    type: get
+                    url: "{{ route('post.index') }}"
                 },
                 columns: [{
                         data: 'date',

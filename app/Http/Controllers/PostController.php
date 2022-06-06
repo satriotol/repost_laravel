@@ -19,7 +19,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $posts = Post::where('user_id', Auth::user()->id)->with('user', 'post_images')->get();
+            $posts = Post::where('user_id', Auth::user()->id)->with('user', 'post_images');
             return DataTables::of($posts)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $btn = '<a href="' . route('post.show', $row->id) . '" class="btn btn-primary">Detail</a>';

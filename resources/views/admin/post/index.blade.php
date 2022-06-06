@@ -90,7 +90,7 @@
     </div>
 @endsection
 @push('script')
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     {{-- <script>
         $(document).ready(function() {
             $('.myTable2').DataTable({
@@ -107,6 +107,9 @@
                 serverSide: true,
                 ajax: {
                     url: "{{ route('post.index') }}"
+                },
+                data: {
+                    '_token': '{{ csrf_token() }}',
                 },
                 columns: [{
                         data: 'date',

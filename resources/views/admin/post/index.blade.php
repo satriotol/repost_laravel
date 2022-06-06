@@ -126,7 +126,8 @@
                     },
                     {
                         data: 'post_images.length',
-                        name: 'post_images.length'
+                        name: 'post_images.length',
+                        searchable: false
                     },
                     {
                         data: 'action',

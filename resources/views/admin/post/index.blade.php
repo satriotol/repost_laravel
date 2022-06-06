@@ -52,8 +52,8 @@
                     <thead>
                         <th>Date</th>
                         <th>Name</th>
-                        {{-- <th>User</th>
-                        <th>Image Count</th> --}}
+                        <th>User</th>
+                        <th>Image Count</th>
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -101,7 +101,7 @@
         });
     </script> --}}
     <script type="text/javascript">
-        $(function() {
+        $(document).ready(function() {
             var table = $('.myTable2').DataTable({
                 processing: true,
                 serverSide: true,
@@ -116,14 +116,14 @@
                         data: 'name',
                         name: 'name'
                     },
-                    // {
-                    //     data: 'user.name',
-                    //     name: 'user.name'
-                    // },
-                    // {
-                    //     data: 'post_images.length',
-                    //     name: 'post_images.length'
-                    // },
+                    {
+                        data: 'user.name',
+                        name: 'user.name'
+                    },
+                    {
+                        data: 'post_images.length',
+                        name: 'post_images.length'
+                    },
                     {
                         data: 'action',
                         name: 'action',

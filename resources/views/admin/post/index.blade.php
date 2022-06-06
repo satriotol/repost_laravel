@@ -103,6 +103,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             var table = $('.myTable2').DataTable({
+                autoWidth: false,
                 processing: true,
                 serverSide: true,
                 ajax: {

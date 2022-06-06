@@ -104,9 +104,11 @@
             var table = $('#myTable2').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('post.index') }}",
-                columns: [
-                    {
+                ajax: {
+                    url: "{{ route('post.index') }}",
+                    type: get
+                },
+                columns: [{
                         data: 'date',
                         name: 'date'
                     },

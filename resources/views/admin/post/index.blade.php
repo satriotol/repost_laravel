@@ -106,7 +106,11 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('post.index') }}"
+                    url: "{{ route('post.getPosts') }}",
+                    method: 'POST',
+                    data: {
+                        '_token': '{{ csrf_token() }}',
+                    },
                 },
                 columns: [{
                         data: 'date',

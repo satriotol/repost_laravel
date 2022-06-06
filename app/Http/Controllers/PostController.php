@@ -35,6 +35,7 @@ class PostController extends Controller
                         </form>';
                     return $btn;
                 })
+                ->orderColumn('date', '-date $1')
                 ->rawColumns(['action'])
                 ->make(true);
         }

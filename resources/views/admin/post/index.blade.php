@@ -58,7 +58,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($posts as $post)
+                        {{-- @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $post->date }}</td>
                                 <td>{{ $post->name }}</td>
@@ -82,7 +82,7 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
@@ -90,7 +90,7 @@
     </div>
 @endsection
 @push('script')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#myTable2').DataTable({
                 "order": [
@@ -98,8 +98,8 @@
                 ]
             });
         });
-    </script>
-    {{-- <script type="text/javascript">
+    </script> --}}
+    <script type="text/javascript">
         $(function() {
             var table = $('#myTable2').DataTable({
                 processing: true,
@@ -131,5 +131,5 @@
                 ]
             });
         });
-    </script> --}}
+    </script>
 @endpush

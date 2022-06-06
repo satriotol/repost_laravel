@@ -36,7 +36,7 @@ class PostController extends Controller
                     return $btn;
                 })
                 ->rawColumns(['action'])
-                ->toJson();
+                ->make(true);
         }
         $posts = Post::where('user_id', Auth::user()->id)->get();
         $post_count = Post::where('user_id', Auth::user()->id)->count();

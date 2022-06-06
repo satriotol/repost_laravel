@@ -108,9 +108,6 @@
                 ajax: {
                     url: "{{ route('post.index') }}"
                 },
-                data: {
-                    '_token': '{{ csrf_token() }}',
-                },
                 columns: [{
                         data: 'date',
                         name: 'date'

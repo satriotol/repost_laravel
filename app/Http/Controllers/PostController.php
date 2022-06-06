@@ -38,12 +38,12 @@ class PostController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        $posts = Post::where('user_id', Auth::user()->id)->get();
+        // $posts = Post::where('user_id', Auth::user()->id)->get();
         $post_count = Post::where('user_id', Auth::user()->id)->count();
         $post_image_count = PostImage::whereHas('post', function ($q) {
             $q->where('user_id', Auth::user()->id);
         })->count();
-        return view('admin.post.index', compact('post_count', 'post_image_count', 'posts'));
+        return view('admin.post.index', compact('post_count', 'post_image_count'));
     }
 
     /**

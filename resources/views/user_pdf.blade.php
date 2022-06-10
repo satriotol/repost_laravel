@@ -9,7 +9,6 @@
         .page-break {
             page-break-after: always;
         }
-
     </style>
 </head>
 
@@ -37,9 +36,10 @@
                     <tr>
                         <td>{{ $post_image->social_media->name }}</td>
                         <td>
-                            {{public_path('uploads/' . $post_image->image)}}
-                            {{-- <img src="{{ public_path('uploads/' . $post_image->image) }}" style="height: 300px"
+                            {{-- <img src="{{ public_path('storage/' . $post_image->image) }}" style="height: 300px"
                                 alt=""> --}}
+                            <img src="{{ asset('uploads/' . $post_image->image) }}" style="height: 100px"
+                                class="img-fluid">
                         </td>
                     </tr>
                 @endforeach

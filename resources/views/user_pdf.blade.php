@@ -36,10 +36,11 @@
                 @foreach ($post->post_images as $post_image)
                     <tr>
                         <td>{{ $post_image->social_media->name }}</td>
-                        {{-- <td>
-                            <img src="{{ public_path('uploads/' . $post_image->image) }}" style="height: 300px"
-                                alt="">
-                        </td> --}}
+                        <td>
+                            {{public_path('uploads/' . $post_image->image)}}
+                            {{-- <img src="{{ public_path('uploads/' . $post_image->image) }}" style="height: 300px"
+                                alt=""> --}}
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

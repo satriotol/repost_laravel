@@ -36,10 +36,8 @@
                     <tr>
                         <td>{{ $post_image->social_media->name }}</td>
                         <td>
-                            {{-- <img src="{{ public_path('storage/' . $post_image->image) }}" style="height: 300px"
-                                alt=""> --}}
-                            <img src="{{ asset('uploads/' . $post_image->image) }}" style="height: 100px"
-                                class="img-fluid">
+                            <img src="{{ public_path('storage/' . $post_image->image) }}" style="height: 300px"
+                                alt="">
                         </td>
                     </tr>
                 @endforeach

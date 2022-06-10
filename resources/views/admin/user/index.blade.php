@@ -17,6 +17,7 @@
                 <table id="myTable" class="display">
                     <thead>
                         <th>Name</th>
+                        <th>Bidang</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Post</th>
@@ -27,6 +28,7 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->sector->name ?? 'Belum Ada Bidang' }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->getRoleNames()->first() }}</td>
                                 <td>{{ $user->posts->count() }}</td>
